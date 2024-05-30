@@ -1,0 +1,175 @@
+<html style="--vh: 6.47px;"><head><script>
+async function enq_main(id) {
+    var url = "https://voicevox.su-shiki.com/enq/request.php?id="+id+"&action=";
+    var htmlFetch = await fetch(url + "html");
+    var html = await htmlFetch.text();
+    html = html.replace("{{url}}", url+"href");
+    var dialog = document.createElement("dialog");
+    document.body.appendChild(dialog);
+    dialog.innerHTML = '<div align="right"><span id="dialogX" style="cursor: pointer;">(X)</span></div><div id="dialogPayload" style="margin: 1px 1px 25px 1px;"></div><center><span id="dialogClose" style="cursor: pointer;">(閉じる)</span></center>';
+    dialog.payload = document.getElementById("dialogPayload");
+    document.getElementById("dialogX").addEventListener("click", e => {dialog.close()});
+    document.getElementById("dialogClose").addEventListener("click", e => {dialog.close()});
+    dialog.addEventListener("click", e => {
+        const dialogDimensions = dialog.getBoundingClientRect()
+        if (
+            e.clientX < dialogDimensions.left
+         || e.clientX > dialogDimensions.right
+         || e.clientY < dialogDimensions.top
+         || e.clientY > dialogDimensions.bottom
+        ) {
+            dialog.close()
+        }
+    });
+    dialog.payload.innerHTML = html;
+    dialog.showModal();
+}
+function enq_pre() {
+    if (localStorage.getItem("enq_count2024")) {
+        var count = parseInt(localStorage.getItem("enq_count2024"));
+        if ((count%100) == 2) {
+            enq_main("50204");
+        }
+        localStorage.setItem("enq_count2024", count+1);
+    }
+    else {
+        localStorage.setItem("enq_count2024", 1);
+    }
+}
+enq_pre();
+</script>
+
+    <title>スマホ用拡大表示 | WEB版VOICEVOX</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <style type="text/css">
+    html {
+        overflow: hidden;
+    }
+    body {
+        overflow: hidden;
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    form {
+        display: inline;
+        margin:0;
+        padding:0;
+    }
+    select {
+        width: 100vw;
+        height: 10vh;
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 5.5vw;
+        font-size: calc(min(var(--vh, 1vh) * 8, 5.5vw));
+        margin:0;
+        padding:0;
+        background-color: #f0f0f0;
+    }
+    button {
+        width: 100vw;
+        height: 20vh;
+        height: calc(var(--vh, 1vh) * 20);
+        font-size: 12vh;
+        font-size: calc(var(--vh, 1vh) * 12);
+        margin:0;
+        padding:0;
+    }
+
+    .long {
+        width: 100vw;
+        height: 10vh;
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: calc(min(var(--vh, 1vh) * 5, 4vw));
+        background-color: #ffaaaa;
+        margin:0;
+        padding:0;
+    }
+    input {
+        width: 50vw;
+        height: 10vh;
+        height: calc(var(--vh, 1vh) * 10);
+        font-size: 5vh;
+        font-size: calc(min(var(--vh, 1vh) * 5, 8vw));
+        margin:0;
+        padding:0;
+    }
+    audio {
+        width: 100vw;
+        height: 10vh;
+        height: calc(var(--vh, 1vh) * 10);
+        margin: 0;
+        padding:0;
+    }
+    textarea {
+        resize: none;
+        width: 100vw;
+        height: 45vh;
+        height: calc(var(--vh, 1vh) * 45);
+        font-size:5vw;
+        margin:0;
+        padding:0;
+        background-color: #fdfdff;
+    }
+    p {
+        width: 100vw;
+        font-size:2vw;
+        font-size: calc(min(var(--vh, 1vh) * 3, 2vw));
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        line-height: 2vh;
+        line-height: calc(var(--vh, 1vh) * 2);
+    }
+    span {
+        display: flex;
+        margin:0;
+        padding:0;
+    }
+
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>   
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SPTWBJ9CDD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SPTWBJ9CDD');
+</script>
+
+
+
+
+
+</head><body><form method="post" action="https://voicevox.su-shiki.com/vertical/"><input type="hidden" name="ifToken" value="3caa5fc807b8576a1776bd8b54ffd36c0def9480189946ce4b95cc2db906c9e1"><select name="speaker">
+<option value="0" selected="">VOICEVOX:四国めたん（あまあま）</option><option value="1">VOICEVOX:ずんだもん（あまあま）</option><option value="2">VOICEVOX:四国めたん（ノーマル）</option><option value="3">VOICEVOX:ずんだもん（ノーマル）</option><option value="4">VOICEVOX:四国めたん（セクシー）</option><option value="5">VOICEVOX:ずんだもん（セクシー）</option><option value="6">VOICEVOX:四国めたん（ツンツン）</option><option value="7">VOICEVOX:ずんだもん（ツンツン）</option><option value="8">VOICEVOX:春日部つむぎ（ノーマル）</option><option value="9">VOICEVOX:波音リツ（ノーマル）</option><option value="10">VOICEVOX:雨晴はう（ノーマル）</option><option value="11">VOICEVOX:玄野武宏（ノーマル）</option><option value="12">VOICEVOX:白上虎太郎（ふつう）</option><option value="13">VOICEVOX:青山龍星（ノーマル）</option><option value="14">VOICEVOX:冥鳴ひまり（ノーマル）</option><option value="15">VOICEVOX:九州そら（あまあま）</option><option value="16">VOICEVOX:九州そら（ノーマル）</option><option value="17">VOICEVOX:九州そら（セクシー）</option><option value="18">VOICEVOX:九州そら（ツンツン）</option><option value="19">VOICEVOX:九州そら（ささやき）</option><option value="20">VOICEVOX:もち子(cv 明日葉よもぎ)（ノーマル）</option><option value="21">VOICEVOX:剣崎雌雄（ノーマル）</option><option value="22">VOICEVOX:ずんだもん（ささやき）</option><option value="23">VOICEVOX:WhiteCUL（ノーマル）</option><option value="24">VOICEVOX:WhiteCUL（たのしい）</option><option value="25">VOICEVOX:WhiteCUL（かなしい）</option><option value="26">VOICEVOX:WhiteCUL（びえーん）</option><option value="27">VOICEVOX:後鬼（人間ver.）</option><option value="28">VOICEVOX:後鬼（ぬいぐるみver.）</option><option value="29">VOICEVOX:No.7（ノーマル）</option><option value="30">VOICEVOX:No.7（アナウンス）</option><option value="31">VOICEVOX:No.7（読み聞かせ）</option><option value="32">VOICEVOX:白上虎太郎（わーい）</option><option value="33">VOICEVOX:白上虎太郎（びくびく）</option><option value="34">VOICEVOX:白上虎太郎（おこ）</option><option value="35">VOICEVOX:白上虎太郎（びえーん）</option><option value="36">VOICEVOX:四国めたん（ささやき）</option><option value="37">VOICEVOX:四国めたん（ヒソヒソ）</option><option value="38">VOICEVOX:ずんだもん（ヒソヒソ）</option><option value="39">VOICEVOX:玄野武宏（喜び）</option><option value="40">VOICEVOX:玄野武宏（ツンギレ）</option><option value="41">VOICEVOX:玄野武宏（悲しみ）</option><option value="42">VOICEVOX:ちび式じい（ノーマル）</option><option value="43">VOICEVOX:櫻歌ミコ（ノーマル）</option><option value="44">VOICEVOX:櫻歌ミコ（第二形態）</option><option value="45">VOICEVOX:櫻歌ミコ（ロリ）</option><option value="46">VOICEVOX:小夜/SAYO（ノーマル）</option><option value="47">VOICEVOX:ナースロボ＿タイプＴ（ノーマル）</option><option value="48">VOICEVOX:ナースロボ＿タイプＴ（楽々）</option><option value="49">VOICEVOX:ナースロボ＿タイプＴ（恐怖）</option><option value="50">VOICEVOX:ナースロボ＿タイプＴ（内緒話）</option><option value="51">VOICEVOX:†聖騎士 紅桜†（ノーマル）</option><option value="52">VOICEVOX:雀松朱司（ノーマル）</option><option value="53">VOICEVOX:麒ヶ島宗麟（ノーマル）</option><option value="54">VOICEVOX:春歌ナナ（ノーマル）</option><option value="55">VOICEVOX:猫使アル（ノーマル）</option><option value="56">VOICEVOX:猫使アル（おちつき）</option><option value="57">VOICEVOX:猫使アル（うきうき）</option><option value="58">VOICEVOX:猫使ビィ（ノーマル）</option><option value="59">VOICEVOX:猫使ビィ（おちつき）</option><option value="60">VOICEVOX:猫使ビィ（人見知り）</option><option value="61">VOICEVOX:中国うさぎ（ノーマル）</option><option value="62">VOICEVOX:中国うさぎ（おどろき）</option><option value="63">VOICEVOX:中国うさぎ（こわがり）</option><option value="64">VOICEVOX:中国うさぎ（へろへろ）</option><option value="65">VOICEVOX:波音リツ（クイーン）</option><option value="66">VOICEVOX:もち子(cv 明日葉よもぎ)（セクシー／あん子）</option><option value="67">VOICEVOX:栗田まろん（ノーマル）</option><option value="68">VOICEVOX:あいえるたん（ノーマル）</option><option value="69">VOICEVOX:満別花丸（ノーマル）</option><option value="70">VOICEVOX:満別花丸（元気）</option><option value="71">VOICEVOX:満別花丸（ささやき）</option><option value="72">VOICEVOX:満別花丸（ぶりっ子）</option><option value="73">VOICEVOX:満別花丸（ボーイ）</option><option value="74">VOICEVOX:琴詠ニア（ノーマル）</option><option value="75">VOICEVOX:ずんだもん（ヘロヘロ）</option><option value="76">VOICEVOX:ずんだもん（なみだめ）</option><option value="77">VOICEVOX:もち子(cv 明日葉よもぎ)（泣き）</option><option value="78">VOICEVOX:もち子(cv 明日葉よもぎ)（怒り）</option><option value="79">VOICEVOX:もち子(cv 明日葉よもぎ)（喜び）</option><option value="80">VOICEVOX:もち子(cv 明日葉よもぎ)（のんびり）</option><option value="81">VOICEVOX:青山龍星（熱血）</option><option value="82">VOICEVOX:青山龍星（不機嫌）</option><option value="83">VOICEVOX:青山龍星（喜び）</option><option value="84">VOICEVOX:青山龍星（しっとり）</option><option value="85">VOICEVOX:青山龍星（かなしみ）</option><option value="86">VOICEVOX:青山龍星（囁き）</option></select>
+<textarea name="text" placeholder="テキストを入力"></textarea><button>合成</button>
+<span>
+<a href="https://www.voicevox.su-shiki.com"><input type="button" value="WEB版TOP"></a><a href="https://voicevox.hiroshiba.jp"><input type="button" value="公式サイト"></a></span><span><a href="https://voicevox.su-shiki.com/unite/"><input type="button" value="長文合成"></a><a href="https://voicevox.su-shiki.com/reg/"><input type="button" value="詳細調声"></a></span></form><p>本サイトは、<a href="https://voicevox.hiroshiba.jp/">VOICEVOX</a>を使って音声を合成しております。利用規約等もこちらでご確認ください。</p><script type="text/javascript">
+
+function setHeight() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setHeight();
+window.addEventListener('resize', setHeight);
+
+</script><dialog open=""><div align="right"><span id="dialogX" style="cursor: pointer;">(X)</span></div><div id="dialogPayload" style="margin: 1px 1px 25px 1px;"><h3 style="font-size: 20px; color: #333333; text-align: center;">アンケートにご協力お願いします</h3>
+<p style="font-size: 14px; color: #666666; text-align: center;">
+WEB版VOICEVOXで、歌えるようになったことはご存知ですか？
+</p>
+<a target="_blank" href="https://voicevox.su-shiki.com/enq/request.php?id=50204&amp;action=href" style="display: block; width: 180px; margin: 0 auto; text-align: center; background-color: #666666; color: #FFFFFF; border-radius: 6px; padding: 8px; text-decoration: none; font-weight: bold; font-size: 14px;">参加する</a></div><center><span id="dialogClose" style="cursor: pointer;">(閉じる)</span></center></dialog></body></html>
